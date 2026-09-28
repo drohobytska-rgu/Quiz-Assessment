@@ -1,6 +1,6 @@
 const prompt = require("readline-sync");
 
-let questions = [];
+let questions = Array();
 
 questions[17] = {
     questionNumber: 17,
@@ -37,3 +37,21 @@ questions[20] = {
     correctAnswer: "C",
     categoryName: "Geography" 
 };
+
+let questionHint = "";
+let hintSuggestion;
+
+function currentQuestion(questionNumber) {
+    console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+    hintSuggestion = true;
+    while (hintSuggestion === true) {
+        questionHint = prompt.question("Would you like a hint?");
+        if (questionHint === "yes".toLowerCase()) {
+            console.log(questions[questionNumber].questionHint);
+        } else if (questionHint !== "yes".toLowerCase() && questionHint !== "no".toLowerCase()) {
+            console.log("Please enter YES to see the hint, or NO if you want to try answering without a hint.");
+        } else {
+            hintSuggestion = false;
+        }
+    }
+}
