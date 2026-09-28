@@ -6,7 +6,7 @@ Each question must contain:
 - Question text
 - Four answer options (A–D)
 - Correct answer
-- Points
+- Hint
 
 ---
 
@@ -20,8 +20,9 @@ Each question must contain:
 - C. Canberra
 - D. Brisbane
 
+**Hint:** It is not Australia’s largest or most famous city. It is located inland between Sydney and Melbourne.
+
 **Correct Answer:** C. Canberra  
-**Points:** 1
 
 ---
 
@@ -33,8 +34,9 @@ Each question must contain:
 - C. Saturn
 - D. Mars
 
+**Hint:** This planet is a gas giant and is famous for the Great Red Spot.
+
 **Correct Answer:** B. Jupiter  
-**Points:** 1
 
 ---
 
@@ -46,8 +48,9 @@ Each question must contain:
 - C. 7
 - D. 8
 
+**Hint:** Think of the prefix “hex-”, which is connected with the number six.
+
 **Correct Answer:** B. 6  
-**Points:** 1
 
 ---
 
@@ -59,8 +62,9 @@ Each question must contain:
 - C. Arctic Ocean
 - D. Pacific Ocean
 
+**Hint:** It lies between Asia and Australia on one side and the Americas on the other.
+
 **Correct Answer:** D. Pacific Ocean  
-**Points:** 1
 
 ---
 
@@ -74,8 +78,9 @@ Each question must contain:
 - C. Central Program Utility
 - D. Computer Processing User
 
+**Hint:** It is often described as the “brain” of the computer because it processes instructions.
+
 **Correct Answer:** A. Central Processing Unit  
-**Points:** 1
 
 ---
 
@@ -87,8 +92,9 @@ Each question must contain:
 - C. To connect the computer to the internet
 - D. To display images on the screen
 
+**Hint:** The information stored here is temporary and is normally lost when the computer is switched off.
+
 **Correct Answer:** B. To temporarily store data currently being used  
-**Points:** 1
 
 ---
 
@@ -100,8 +106,9 @@ Each question must contain:
 - C. A sequence of steps used to solve a problem
 - D. A type of internet connection
 
+**Hint:** Think of a set of ordered instructions for completing a task or solving a problem.
+
 **Correct Answer:** C. A sequence of steps used to solve a problem  
-**Points:** 2
 
 ---
 
@@ -113,8 +120,9 @@ Each question must contain:
 - C. To increase computer speed
 - D. To protect a computer from viruses
 
+**Hint:** Developers use it to keep a history of changes to their code and work together.
+
 **Correct Answer:** B. To track changes made to files during development  
-**Points:** 2
 
 ---
 
@@ -128,8 +136,9 @@ Each question must contain:
 - C. Virtual Personal Node
 - D. Variable Private Network
 
+**Hint:** It creates a private connection between your device and another network over the internet.
+
 **Correct Answer:** A. Virtual Private Network  
-**Points:** 1
 
 ---
 
@@ -141,8 +150,9 @@ Each question must contain:
 - C. A method of compressing files
 - D. A type of computer hardware
 
+**Hint:** It often involves fake emails or messages designed to make the victim give away confidential information.
+
 **Correct Answer:** B. An attempt to trick someone into revealing sensitive information  
-**Points:** 1
 
 ---
 
@@ -154,8 +164,9 @@ Each question must contain:
 - C. Using a password and a verification code sent to your phone
 - D. Using two different passwords
 
+**Hint:** It requires two different kinds of proof, such as something you know and something you receive or possess.
+
 **Correct Answer:** C. Using a password and a verification code sent to your phone  
-**Points:** 2
 
 ---
 
@@ -167,8 +178,9 @@ Each question must contain:
 - C. To protect information from unauthorised access
 - D. To remove computer viruses
 
+**Hint:** It transforms readable information so that people without permission cannot easily understand it.
+
 **Correct Answer:** C. To protect information from unauthorised access  
-**Points:** 2
 
 ---
 
@@ -182,8 +194,9 @@ Each question must contain:
 - C. Helium
 - D. Hydrogen
 
+**Hint:** Your lungs take this gas from the air and your blood carries it around your body.
+
 **Correct Answer:** B. Oxygen  
-**Points:** 1
 
 ---
 
@@ -195,8 +208,9 @@ Each question must contain:
 - C. Au
 - D. Go
 
+**Hint:** Its symbol comes from the Latin word “aurum”.
+
 **Correct Answer:** C. Au  
-**Points:** 1
 
 ---
 
@@ -208,8 +222,9 @@ Each question must contain:
 - C. Lung
 - D. Heart
 
+**Hint:** It beats continuously and is part of the circulatory system.
+
 **Correct Answer:** D. Heart  
-**Points:** 1
 
 ---
 
@@ -221,8 +236,9 @@ Each question must contain:
 - C. 50°C
 - D. 100°C
 
+**Hint:** On the Celsius scale, it is the point where positive temperatures meet negative temperatures.
+
 **Correct Answer:** A. 0°C  
-**Points:** 2
 
 ---
 
@@ -236,8 +252,9 @@ Each question must contain:
 - C. Edinburgh
 - D. Dundee
 
+**Hint:** It is home to the Scottish Parliament and a famous castle overlooking the city.
+
 **Correct Answer:** C. Edinburgh  
-**Points:** 1
 
 ---
 
@@ -249,8 +266,9 @@ Each question must contain:
 - C. North America
 - D. Asia
 
+**Hint:** It contains countries such as China, India and Japan.
+
 **Correct Answer:** D. Asia  
-**Points:** 1
 
 ---
 
@@ -262,8 +280,9 @@ Each question must contain:
 - C. River Severn
 - D. River Tyne
 
+**Hint:** Famous London landmarks such as Tower Bridge stand across this river.
+
 **Correct Answer:** A. River Thames  
-**Points:** 1
 
 ---
 
@@ -275,8 +294,9 @@ Each question must contain:
 - C. Himalayas
 - D. Rocky Mountains
 
+**Hint:** This range stretches across several Asian countries, including Nepal.
+
 **Correct Answer:** C. Himalayas  
-**Points:** 2
 
 ---
 
@@ -295,18 +315,12 @@ Each team member should:
 - Test all 4 questions.
 - Commit their own work to GitHub using clear commit messages.
 
-## Final Quiz Structure
-
-1. General Knowledge – Member 1
-2. Technology – Member 2
-3. Cybersecurity – Member 3
-4. Science – Member 4
-5. Geography – Member 5
-
 **Total Questions:** 20
 
 ### Scoring
-- Standard question: 1 point
-- More difficult question: 2 points
+- 3 points - correct answer with no hint and within 20 seconds
+- 2 points - correct answer with a hint OR after 20 seconds
+- 1 point - correct answer with a hint AND after 20 seconds
+- 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.
 
 The final program should combine all five categories into one quiz and calculate the player's overall score.
