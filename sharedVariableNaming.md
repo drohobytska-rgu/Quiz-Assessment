@@ -45,4 +45,4 @@ If two parts of the program represent the same information, use the same variabl
 For example:
 
 ✅ `totalScore` everywhere  
-❌ `score`, `total`, `finalScore`, `pointsTotal` in different files
+❌ `score`, `total`, `finalScore`, `pointsTotal` in different files 
