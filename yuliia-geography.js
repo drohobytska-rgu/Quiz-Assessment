@@ -61,16 +61,21 @@ function currentQuestion(questionNumber) {
         }
     }
 
-    playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
-    if (playerAnswer === questions[questionNumber].correctAnswer.toUpperCase()) {
-        console.log("Correct! Well done.");
-        correctAnswers++;
-        roundScore += 3;
-    } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
-        console.log("Invalid input. Please enter A, B, C, or D.");
-    } else {
-        console.log("Incorrect answer.");
-        wrongAnswers++;
+    let tryAgain = true;
+    while (tryAgain === true) {
+        playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
+        if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
+            console.log("Correct! Well done.");
+            correctAnswers++;
+            roundScore += 3;
+            tryAgain = false;
+        } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
+            console.log("Invalid input. Please enter A, B, C, or D.");
+        } else {
+            console.log("Incorrect answer.");
+            wrongAnswers++;
+            tryAgain = false;
+        }
     }
 
     // How do we measure the answer time?
@@ -79,6 +84,6 @@ function currentQuestion(questionNumber) {
     } 
 }
 
-for (questionNumber = 17; questionNumber <= 20; questionNumber++) {
+for (let questionNumber = 17; questionNumber <= 20; questionNumber++) {
     currentQuestion(questionNumber);
 }
