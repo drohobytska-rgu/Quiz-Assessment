@@ -76,7 +76,8 @@ else if(menuChoice === "4"){
     console.log("Exiting the quiz. Goodbye!")
 }
     else {
-    process.exit();
+    console,log("Invslid option. Please select 1 -4.");
+    continue;
 }
 
 
@@ -103,66 +104,58 @@ else if (categoryName === "4") {
     break;
    // here will be desplayed the questions of the Science category
 }
+}
 
 
 // // GENERAL QUESTION QUIZ
 
 
 // QUESTION 1
-function generalKnowledgeQuestions(){
-     console.log("You have selected General Knowledge category")
-const generalKQ = [{
-    questionNumber:1,
-    questionText:"What is the capital city of Australia?",
-    answerOptions: [
-        "A. Sydney",
-        "B. Melbourne",
-        "C. Canberra",
-        "D. Brisbane"
-    ],
-    correctAnswer: "C" && "c",
-    questionHint: "The capital city is not Sydney or Melbourne.",
-},
 
-   { questionNumber: 2,
-    questionText:"What is the largest planet in our solar system?",
-    answerOptions: [
-        "A. Earth",
-        "B. Jupiter",
-        "C. Saturn",
-        "D. Mars"
-    ],
-    correctAnswer: "B" && "b",
-    questionHint: "The largest planet is not Earth or Mars."},
+function generalKnowledgeQuestions() {
+  console.log("You have selected General Knowledge category");
 
+  const generalKQ = [
+    {
+      questionNumber: 1,
+      questionText: "What is the capital city of Australia?",
+      answerOptions: ["A. Sydney", "B. Melbourne", "C. Canberra", "D. Brisbane"],
+      correctAnswer: "C",
+      questionHint: "The capital city is not Sydney or Melbourne."
+    },
+    {
+      questionNumber: 2,
+      questionText: "What is the largest planet in our solar system?",
+      answerOptions: ["A. Earth", "B. Jupiter", "C. Saturn", "D. Mars"],
+      correctAnswer: "B",
+      questionHint: "The largest planet is not Earth or Mars."
+    },
+    {
+      questionNumber: 3,
+      questionText: "How many sides does a hexagon have?",
+      answerOptions: ["A. 5", "B. 6", "C. 7", "D. 8"],
+      correctAnswer: "B",
+      questionHint: "A hexagon has more than 5 sides."
+    },
+    {
+      questionNumber: 4,
+      questionText: "Which ocean is the largest?",
+      answerOptions: ["A. Atlantic Ocean", "B. Indian Ocean", "C. Arctic Ocean", "D. Pacific Ocean"],
+      correctAnswer: "D",
+      questionHint: "The largest ocean is not the Atlantic or Indian Ocean."
+    }
+  ];
 
-{questionNumber: 3,
-questionText: "How many sides does a hexagon have?",
-answerOptions: [
-    "A. 5",
-    "B. 6",
-    "C. 7",
-    "D. 8"
-],
-correctAnswer: "B" && "b",
-questionHint: "A hexagon has more than 5 sides."},
-
-
-{questionNumber: 4,
-questionText: "Which ocean is the largest?",
-answerOptions: [
-    "A. Atlantic Ocean",
-    "B. Indian Ocean",
-    "C. Arctic Ocean",
-    "D. Pacific Ocean"
-],
-correctAnswer: "D" && "d",
-questionHint: "The largest ocean is not the Atlantic or Indian Ocean."
-}   
-];
-for (let question of generalKQ){
+  for (const question of generalKQ) {
     console.log(question.questionText);
-    console.log(question.answerOptions);
-}
-}}
+    console.log(question.answerOptions.join("\n"));
 
+    const playerAnswer = prompt.question("Please select one of the options A, B, C or D:");
+
+    if (playerAnswer.toUpperCase() === question.correctAnswer) {
+      console.log("Correct answer! You have earned 3 points.");
+    } else {
+      console.log("Incorrect answer");
+    }
+  }
+}
