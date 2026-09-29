@@ -1,7 +1,6 @@
 const prompt = require("readline-sync");
 
 let questions = Array();
-let questionNumber = 0;
 
 questions[1] = {
     questionNumber: 1,
@@ -218,27 +217,26 @@ function currentQuestion(questionNumber) {
 let questionCategory = "";
 let questionCategories = Array();
 
-switch (true) {
-    case questionNumber < 5:
-        questionCategory = "General Knowledge";
-        break;
-    case questionNumber >= 5 && questionNumber < 9:
-        questionCategory = "Technology";
-        break;
-    case questionNumber >= 9 && questionNumber < 13:
-        questionCategory = "Cybersecurity";
-        break;
-    case questionNumber >= 13 && questionNumber < 17:
-        questionCategory = "Science";
-        break;
-    case questionNumber >= 17 && questionNumber < 20:
-        questionCategory = "Geography";
-        break;
-}
-
-for (let i = 1; i <= 20; i++) {
-    currentQuestion(i);
-    if (i % 4 == 0) {
+for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
+    currentQuestion(questionNumber);
+    switch (true) {
+        case questionNumber < 5:
+            questionCategory = "General Knowledge";
+            break;
+        case questionNumber >= 5 && questionNumber < 9:
+            questionCategory = "Technology";
+            break;
+        case questionNumber >= 9 && questionNumber < 13:
+            questionCategory = "Cybersecurity";
+            break;
+        case questionNumber >= 13 && questionNumber < 17:
+            questionCategory = "Science";
+            break;
+        case questionNumber >= 17 && questionNumber < 20:
+            questionCategory = "Geography";
+            break;
+    }
+    if (questionNumber % 4 == 0) {
         roundScores.push(roundScore);
         console.log(`Round scores are ${roundScores}.`);
         console.log(`Question category is ${questionCategory}.`)
@@ -254,15 +252,23 @@ for (let i = 1; i <= 20; i++) {
         wrongAnswers.push(wrongAnswer);
         console.log(`Wrong answers: ${wrongAnswer}`);
         console.log(`Array of wrong answers: ${wrongAnswers}`);
+        correctAnswer = 0;
+        wrongAnswer = 0;
         roundScore = 0;
     }
 }
 
-// let rounds = [
-//     questionCategories,
-//     correctAnswers,
-//     wrongAnswers,
-//     roundScores
-// ];
+let rounds = [
+     questionCategories, // как вывести названия массивов в первый столбец, чтобы было понятно, что именно выводится в таблицу??
+     correctAnswers,
+     wrongAnswers,
+     roundScores
+];
 
-// console.log(rounds[0][0]);
+for (let i = 0; i < rounds.length; i++) {
+    let row = "";
+    for (let j = 0; j < rounds[i].length; j++) {
+        row += String(rounds[i][j]).padEnd(17);
+    }
+    console.log(row);
+}
