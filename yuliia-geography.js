@@ -1,6 +1,135 @@
 const prompt = require("readline-sync");
 
 let questions = Array();
+let questionNumber = 0;
+
+questions[1] = {
+    questionNumber: 1,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[2] = {
+    questionNumber: 2,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[3] = {
+    questionNumber: 3,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[4] = {
+    questionNumber: 4,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[5] = {
+    questionNumber: 5,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[6] = {
+    questionNumber: 6,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[7] = {
+    questionNumber: 7,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[8] = {
+    questionNumber: 8,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[9] = {
+    questionNumber: 9,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[10] = {
+    questionNumber: 10,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[11] = {
+    questionNumber: 11,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[12] = {
+    questionNumber: 12,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[13] = {
+    questionNumber: 13,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[14] = {
+    questionNumber: 14,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[15] = {
+    questionNumber: 15,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[16] = {
+    questionNumber: 16,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
 
 questions[17] = {
     questionNumber: 17,
@@ -8,7 +137,6 @@ questions[17] = {
     answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
     questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
     correctAnswer: "C",
-    categoryName: "Geography" 
 };
 
 questions[18] = {
@@ -17,7 +145,6 @@ questions[18] = {
     answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
     questionHint: "It contains countries such as China, India and Japan.",
     correctAnswer: "D",
-    categoryName: "Geography" 
 };
 
 questions[19] = {
@@ -26,7 +153,6 @@ questions[19] = {
     answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
     questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
     correctAnswer: "A",
-    categoryName: "Geography" 
 };
 
 questions[20] = {
@@ -35,16 +161,19 @@ questions[20] = {
     answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
     questionHint: "This range stretches across several Asian countries, including Nepal.",
     correctAnswer: "C",
-    categoryName: "Geography" 
 };
+
 
 let questionHint = "";
 let playerAnswer = "";
 let answerTime = 0;
-let correctAnswers = 0;
-let wrongAnswers = 0;
+let correctAnswer = 0;
+let correctAnswers = Array();
+let wrongAnswer = 0;
+let wrongAnswers = Array();
 let roundScore = 0;
 let roundScores = Array();
+let totalScore = 0;
 
 function currentQuestion(questionNumber) {
     console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
@@ -67,15 +196,15 @@ function currentQuestion(questionNumber) {
         playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
         if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
             console.log("Correct! Well done.");
-            correctAnswers++;
+            correctAnswer++;
             roundScore += 3;
-            console.log(roundScore);
+            console.log(`Round score is ${roundScore}.`);
             tryAgain = false;
         } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
             console.log("Invalid input. Please enter A, B, C, or D.");
         } else {
             console.log("Incorrect answer.");
-            wrongAnswers++;
+            wrongAnswer++;
             tryAgain = false;
         }
     }
@@ -86,12 +215,54 @@ function currentQuestion(questionNumber) {
     } 
 }
 
-for (let questionNumber = 17; questionNumber <= 20; questionNumber++) {
-    currentQuestion(questionNumber);
-    if (questionNumber % 4 == 0) {
-        roundScores.push(roundScore);
-        console.log(roundScores);
+let questionCategory = "";
+let questionCategories = Array();
 
+switch (true) {
+    case questionNumber < 5:
+        questionCategory = "General Knowledge";
+        break;
+    case questionNumber >= 5 && questionNumber < 9:
+        questionCategory = "Technology";
+        break;
+    case questionNumber >= 9 && questionNumber < 13:
+        questionCategory = "Cybersecurity";
+        break;
+    case questionNumber >= 13 && questionNumber < 17:
+        questionCategory = "Science";
+        break;
+    case questionNumber >= 17 && questionNumber < 20:
+        questionCategory = "Geography";
+        break;
+}
+
+for (let i = 1; i <= 20; i++) {
+    currentQuestion(i);
+    if (i % 4 == 0) {
+        roundScores.push(roundScore);
+        console.log(`Round scores are ${roundScores}.`);
+        console.log(`Question category is ${questionCategory}.`)
+        questionCategories.push(questionCategory);
+        console.log(`Question categories are ${questionCategories}.`);
+        totalScore += roundScore;
+        console.log(`Total score is ${totalScore}.`);
+        // roundScores.sort();
+        // console.log(`Round scores in ascending order are ${roundScores}.`);
+        correctAnswers.push(correctAnswer);
+        console.log(`Correct answers: ${correctAnswer}`);
+        console.log(`Array of correct answers: ${correctAnswers}`);
+        wrongAnswers.push(wrongAnswer);
+        console.log(`Wrong answers: ${wrongAnswer}`);
+        console.log(`Array of wrong answers: ${wrongAnswers}`);
         roundScore = 0;
     }
 }
+
+// let rounds = [
+//     questionCategories,
+//     correctAnswers,
+//     wrongAnswers,
+//     roundScores
+// ];
+
+// console.log(rounds[0][0]);
