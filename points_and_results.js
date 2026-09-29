@@ -67,4 +67,5 @@ function calculatingQuizPoints(userAnswers) {
             totalScore += 1;
     }
 }
+return(totalScore);
 }
