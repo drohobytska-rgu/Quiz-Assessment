@@ -61,12 +61,12 @@ function calculatingQuizPoints(userAnswers) {
             totalScore += 0;
         } else if(!answer.hintsTaken && answer.timeTaken <=20) {
             totalScore += 3; 
-        } else if(answer.hintsTaken || answer.timeTaken >20) {
+        }else if(answer.hintsTaken && answer.timeTaken >20) {
+            totalScore += 1;}
+         else if(answer.hintsTaken || answer.timeTaken >20) {
             totalScore += 2;
-        } else if(answer.hintsTaken && answer.timeTaken >20) {
-            totalScore += 1;
+        } 
     }
-}
 return(totalScore);
 }
 
@@ -111,7 +111,7 @@ const testStats = calculatingResults(testAnswers);
 
 
 console.log("--- Test ---");
-console.log("Загальні бали (очікуємо 6):", testPoints);
+console.log("Загальні бали:", testPoints);
 console.log("Статистика:", testStats);
 
 
