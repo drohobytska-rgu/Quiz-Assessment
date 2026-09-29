@@ -3,48 +3,68 @@ const prompt = require("readline-sync");
 const sienceQuestions = [
     {
         questionNumber: 1,
-        questionText: "Which organ pumps blood around the human body?",
+        questionText: "Which gas do humans need to breathe to survive?",
         answerOptions: [
-            "Carbon dioxide",
-            "Oxygen",
-            "Helium",
-            "Hydrogen"
+            "A. Carbon dioxide",
+            "B. Oxygen",
+            "C. Helium",
+            "D. Hydrogen"
         ],
-        correctAnswer: "Oxygen"
+        correctAnswer: "B",
+        questionHint: "Your lungs take this gas from the air and your blood carries it around your body."
     }, 
     {
         questionNumber: 2,
         questionText: "What is the chemical symbol for gold?",
         answerOptions: [
-            "Ag",
-            "Fe",
-            "Au",
-            "Go"
+            "A. Ag",
+            "B. Fe",
+            "C. Au",
+            "D. Go"
         ],
-        correctAnswer: "Au"
+        correctAnswer: "C",
+        questionHint: "Its symbol comes from the Latin word “aurum”."
     },
     {
         questionNumber: 3,
         questionText: "Which organ pumps blood around the human body?",
         answerOptions: [
-            "Liver",
-            "Brain",
-            "Lung",
-            "Heart"
+            "A. Liver",
+            "B. Brain",
+            "C. Lung",
+            "D. Heart"
         ],
-        correctAnswer: "Heart"
+        correctAnswer: "D",
+        questionHint: "It beats continuously and is part of the circulatory system."
     },
     {
         questionNumber: 4,
         questionText: "At approximately what temperature does water freeze under normal atmospheric conditions?",
         answerOptions: [
-            "0°C",
-            "10°C",
-            "50°C",
-            "100°C"
+            "A. 0°C",
+            "B. 10°C",
+            "C. 50°C",
+            "D. 100°C"
         ],
-        correctAnswer: "0°C"
+        correctAnswer: "A",
+        questionHint:"On the Celsius scale, it is the point where positive temperatures meet negative temperatures."
     }
 ]
 
 
+// ==========Checking answers, attempts and time============
+
+function calculatingQuizPoints(userAnswers) {
+    let totalScore = 0;
+    for(const answer of userAnswers) {
+        if(!answer.isCorrect) {
+            totalScore += 0;
+        } else if(!answer.hintsTaken && answer.timeTaken >=20) {
+            totalScore += 3; 
+        } else if(answer.hintsTaken || answer.timeTaken <20) {
+            totalScore += 2;
+        } else if(answer.hintsTaken && answer.timeTaken <20) {
+            totalScore += 1;
+    }
+}
+}
