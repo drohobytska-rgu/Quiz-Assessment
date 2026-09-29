@@ -5,7 +5,7 @@ let usedHint = false;
 let timeTaken;
 let questionAnswer;
 
-const letterofAnswer = ["A", "B", "C", "D"];
+const letterofAnswer = ["A", "B", "C", "D"]; //used for the rows of 2D Arrays which connects them when user inputs the letter
 
 function askTimedQuestion(questionText, answerOptions, isCorrect) {
     let questionPoints = 3;
@@ -19,7 +19,7 @@ while(true) {
     let userInput = prompt.question("Your answer: ")   
     let endTime = Date.now()
 
-    questionAnswer = letterofAnswer.indexOf(userInput.trim().toUpperCase()); 
+    questionAnswer = letterofAnswer.indexOf(userInput.trim().toUpperCase()); //removes whitespace as well as changes the letter user enters to upper case if need be.
 
     timeTaken = ((endTime - startTime) / 1000); //(/ 1000) is to convert from milliseconds to seconds
 
@@ -87,7 +87,3 @@ for (let i = 0; i < questions.length; i++) {
 }
 
 console.log("Total: " + totalPoints + " points.");
-<<<<<<< HEAD
-=======
-}
->>>>>>> 2c97a479d0638c4101ea35aaa1692d94420c60b4
