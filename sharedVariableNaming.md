@@ -21,7 +21,12 @@ Every member should use the same names for question information:
 - `correctAnswer`
 - `questionPoints`
 - `categoryName`
-- 'askTimedQuestion' // This function is for setting the timer rather than having to write out the full code every single time.
+
+## Functions
+
+Every member should use the same names for functions:
+
+- 'askTimedQuestion()' // This function is for setting the timer rather than having to write out the full code every single time.
 
 ## Input Variables
 
