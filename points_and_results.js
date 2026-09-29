@@ -1,4 +1,4 @@
-const prompt = require("readline-sync");
+// const prompt = require("readline-sync");
 
 const sienceQuestions = [
     {
@@ -59,11 +59,11 @@ function calculatingQuizPoints(userAnswers) {
     for(const answer of userAnswers) {
         if(!answer.isCorrect) {
             totalScore += 0;
-        } else if(!answer.hintsTaken && answer.timeTaken >=20) {
+        } else if(!answer.hintsTaken && answer.timeTaken <=20) {
             totalScore += 3; 
-        } else if(answer.hintsTaken || answer.timeTaken <20) {
+        } else if(answer.hintsTaken || answer.timeTaken >20) {
             totalScore += 2;
-        } else if(answer.hintsTaken && answer.timeTaken <20) {
+        } else if(answer.hintsTaken && answer.timeTaken >20) {
             totalScore += 1;
     }
 }
@@ -82,18 +82,18 @@ function calculatingResults (userAnswers) {
     }
     let incorrectAnswersCount = totalQuestions - correctAnswersCount;
     // let presentage = totalQuestions > 0 ? Math.round(correctAnswersCount / totalQuestions *100);
-    let persentage;
+    let percentage;
     if(totalQuestions > 0) {
-        persentage = Math.round(correctAnswersCount / totalQuestions *100)
+        percentage = Math.round(correctAnswersCount / totalQuestions *100)
     } else {
-        persentage = 0;
+        percentage = 0;
     }
 
     return{
         totalQuestions: totalQuestions,
-        correctanswers: correctAnswersCount,
+        correctAnswers: correctAnswersCount,
         incorrectAnswers: incorrectAnswersCount,
-        successResults: persentage
+        successResults: percentage
 }
 }
 
