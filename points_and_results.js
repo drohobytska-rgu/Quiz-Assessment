@@ -97,15 +97,22 @@ function calculatingResults (userAnswers) {
 }
 }
 
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
+// =============Test=============
+
+const testAnswers = [
+  { isCorrect: true,  hintsTaken: false, timeTaken: 10 }, // Має бути 3 бали
+  { isCorrect: true,  hintsTaken: true,  timeTaken: 15 }, // Має бути 2 бали
+  { isCorrect: true,  hintsTaken: true,  timeTaken: 25 }, // Має бути 1 бал
+  { isCorrect: false, hintsTaken: false, timeTaken: 5  }  // Має бути 0 балів
+];
+
+const testPoints = calculatingQuizPoints(testAnswers);
+const testStats = calculatingResults(testAnswers);
+
+
+console.log("--- Test ---");
+console.log("Загальні бали (очікуємо 6):", testPoints);
+console.log("Статистика:", testStats);
 
 
 
