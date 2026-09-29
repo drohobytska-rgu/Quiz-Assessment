@@ -87,3 +87,7 @@ for (let i = 0; i < questions.length; i++) {
 }
 
 console.log("Total: " + totalPoints + " points.");
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 2c97a479d0638c4101ea35aaa1692d94420c60b4
