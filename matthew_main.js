@@ -23,21 +23,29 @@ while(true) {
 
     timeTaken = ((endTime - startTime) / 1000); //(/ 1000) is to convert from milliseconds to seconds
 
-    if (questionAnswer === -1) {
+//     if (questionAnswer === -1) {
+//         console.log("Please enter A, B, C or D.");
+
+//     if (timeTaken > 60) {
+//     console.log("That took over 60 seconds, so that attempt doesn't count. Try again!"); //if they take over 60 seconds, they will be informed this once answer and asked to try again. I was going to make it cut off but it can't with const prompt = require("readline-sync") and was going to be too complex to change.
+
+//     } else{
+//         break;
+//     }
+// }
+if (questionAnswer === -1) {
         console.log("Please enter A, B, C or D.");
-
-    if (timeTaken > 60) {
-    console.log("You took over 60 seconds. Please try again!"); //if they take over 60 seconds, they will be prompted to try again. This is to prevent them from taking too long and to keep the game moving.
-
-    } else{
+    } else if (timeTaken > 60) {
+        console.log("That took over 60 seconds, so that attempt doesn't count. Try again!"); 
+    } else {
         break;
     }
-}
+} 
 
 console.log("You took " + (Math.floor(timeTaken)) + " seconds to answer this question!");
 
 if (timeTaken >= 20) {
-    console.log("You took over 20 seconds to answer this question!");
+    console.log("You took 20 seconds or more, so you lose a point.");
     questionPoints = questionPoints - 1;
 }
 
@@ -56,7 +64,7 @@ if (isCorrect[questionAnswer] === true) {    //isCorrect is what I have called a
     return questionPoints;
 }
 
-const questionText = ["What does VPN stand for?" , "What is phishing?", "Which of these is an example of two-factor authentication?" ,"What is the main purpose of encryption?"]
+const questions = ["What does VPN stand for?" , "What is phishing?", "Which of these is an example of two-factor authentication?" ,"What is the main purpose of encryption?"]
 
 const answerOptions = [
     ["Virtual Private Network", "Verified Public Network", "Virtual Personal Node", "Variable Private Network"],   // Q1
@@ -74,9 +82,8 @@ const isCorrect = [
 
 let totalPoints = 0;
 
-for (let i = 0; i < questionText.length; i++) {
-    totalPoints = totalPoints + askTimedQuestion(questionText[i], answerOptions[i], isCorrect[i]);
+for (let i = 0; i < questions.length; i++) {
+    totalPoints = totalPoints + askTimedQuestion(questions[i], answerOptions[i], isCorrect[i]);
 }
 
 console.log("Total: " + totalPoints + " points.");
-}
