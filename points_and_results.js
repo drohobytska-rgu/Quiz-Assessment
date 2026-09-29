@@ -69,3 +69,44 @@ function calculatingQuizPoints(userAnswers) {
 }
 return(totalScore);
 }
+
+
+// =============Calculating results===============
+function calculatingResults (userAnswers) {
+    let correctAnswersCount = 0;
+    const totalQuestions = userAnswers.length; 
+    for(const answer of userAnswers) {
+        if(answer.isCorrect) {
+            correctAnswersCount++;
+        }
+    }
+    let incorrectAnswersCount = totalQuestions - correctAnswersCount;
+    // let presentage = totalQuestions > 0 ? Math.round(correctAnswersCount / totalQuestions *100);
+    let persentage;
+    if(totalQuestions > 0) {
+        persentage = Math.round(correctAnswersCount / totalQuestions *100)
+    } else {
+        persentage = 0;
+    }
+
+    return{
+        totalQuestions: totalQuestions,
+        correctanswers: correctAnswersCount,
+        incorrectAnswers: incorrectAnswersCount,
+        successResults: persentage
+}
+}
+
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+
+
+
+
