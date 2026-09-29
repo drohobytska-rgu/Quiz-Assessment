@@ -44,6 +44,7 @@ let answerTime = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 let roundScore = 0;
+let roundScores = Array();
 
 function currentQuestion(questionNumber) {
     console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
@@ -68,6 +69,7 @@ function currentQuestion(questionNumber) {
             console.log("Correct! Well done.");
             correctAnswers++;
             roundScore += 3;
+            console.log(roundScore);
             tryAgain = false;
         } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
             console.log("Invalid input. Please enter A, B, C, or D.");
@@ -86,4 +88,10 @@ function currentQuestion(questionNumber) {
 
 for (let questionNumber = 17; questionNumber <= 20; questionNumber++) {
     currentQuestion(questionNumber);
+    if (questionNumber % 4 == 0) {
+        roundScores.push(roundScore);
+        console.log(roundScores);
+
+        roundScore = 0;
+    }
 }
