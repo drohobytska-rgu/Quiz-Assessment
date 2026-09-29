@@ -76,7 +76,7 @@ else if(menuChoice === "4"){
     console.log("Exiting the quiz. Goodbye!")
 }
     else {
-    console,log("Invslid option. Please select 1 -4.");
+    console,log("Invalid option. Please select 1 -4.");
     continue;
 }
 
@@ -146,7 +146,8 @@ function generalKnowledgeQuestions() {
     }
   ];
 
-  for (const question of generalKQ) {
+  for (let i = 0; i<generalKQ.length; i++) {
+    question = generalKQ[i];
     console.log(question.questionText);
     console.log(question.answerOptions.join("\n"));
 
