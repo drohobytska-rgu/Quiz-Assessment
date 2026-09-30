@@ -252,6 +252,9 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
     }
 }
 
+console.log("FINAL RESULTS:");
+console.log("");
+
 questionCategories.unshift("Question Categories");
 correctAnswers.unshift("Correct Answers");
 wrongAnswers.unshift("Wrong Answers");
@@ -271,3 +274,6 @@ for (let i = 0; i < rounds.length; i++) {
     }
     console.log(row);
 }
+
+console.log("");
+console.log("Total Score: " + totalScore);
