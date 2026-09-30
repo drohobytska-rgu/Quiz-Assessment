@@ -252,6 +252,11 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
     }
 }
 
+questionCategories.unshift("Question Categories");
+correctAnswers.unshift("Correct Answers");
+wrongAnswers.unshift("Wrong Answers");
+roundScores.unshift("Round Scores");
+
 let rounds = [
      questionCategories,
      correctAnswers,
@@ -262,7 +267,7 @@ let rounds = [
 for (let i = 0; i < rounds.length; i++) {
     let row = "";
     for (let j = 0; j < rounds[i].length; j++) {
-        row += String(rounds[i][j]).padEnd(17);
+        row += String(rounds[i][j]).padEnd(25);
     }
     console.log(row);
 }
