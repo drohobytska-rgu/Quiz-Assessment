@@ -1,3 +1,163 @@
 const prompt = require("readline-sync");
 
 let questions = Array();
+
+questions[1] = {
+    questionNumber: 1,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[2] = {
+    questionNumber: 2,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[3] = {
+    questionNumber: 3,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[4] = {
+    questionNumber: 4,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[5] = {
+    questionNumber: 5,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[6] = {
+    questionNumber: 6,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[7] = {
+    questionNumber: 7,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[8] = {
+    questionNumber: 8,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[9] = {
+    questionNumber: 9,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[10] = {
+    questionNumber: 10,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[11] = {
+    questionNumber: 11,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[12] = {
+    questionNumber: 12,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[13] = {
+    questionNumber: 13,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[14] = {
+    questionNumber: 14,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[15] = {
+    questionNumber: 15,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[16] = {
+    questionNumber: 16,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
+
+questions[17] = {
+    questionNumber: 17,
+    questionText: "What is the capital city of Scotland?",
+    answerOptions: ["A. Glasgow", "B. Aberdeen", "C. Edinburgh", "D. Dundee"],
+    questionHint: "It is home to the Scottish Parliament and a famous castle overlooking the city.",
+    correctAnswer: "C",
+};
+
+questions[18] = {
+    questionNumber: 18,
+    questionText: "Which is the largest continent by land area?",
+    answerOptions: ["A. Europe", "B. Africa", "C. North America", "D. Asia"],
+    questionHint: "It contains countries such as China, India and Japan.",
+    correctAnswer: "D",
+};
+
+questions[19] = {
+    questionNumber: 19,
+    questionText: "Which river flows through London?",
+    answerOptions: ["A. River Thames", "B. River Clyde", "C. River Severn", "D. River Tyne"],
+    questionHint: "Famous London landmarks such as Tower Bridge stand across this river.",
+    correctAnswer: "A",
+};
+
+questions[20] = {
+    questionNumber: 20,
+    questionText: "Mount Everest is part of which mountain range?",
+    answerOptions: ["A. Alps", "B. Andes", "C. Himalayas", "D. Rocky Mountains"],
+    questionHint: "This range stretches across several Asian countries, including Nepal.",
+    correctAnswer: "C",
+};
