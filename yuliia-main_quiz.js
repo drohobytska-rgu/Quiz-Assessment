@@ -161,3 +161,14 @@ questions[20] = {
     questionHint: "This range stretches across several Asian countries, including Nepal.",
     correctAnswer: "C",
 };
+
+let questionHint = "";
+let playerAnswer = "";
+let answerTime = 0;
+let correctAnswer = 0;
+let correctAnswers = Array();
+let wrongAnswer = 0;
+let wrongAnswers = Array();
+let roundScore = 0;
+let roundScores = Array();
+let totalScore = 0;
