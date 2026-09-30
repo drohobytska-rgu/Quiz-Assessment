@@ -205,4 +205,7 @@ function currentQuestion(questionNumber) {
             tryAgain = false;
         }
     }
+    if (answerTime > 20) {
+        roundScore--;
+    } 
 }
