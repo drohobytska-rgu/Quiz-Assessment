@@ -175,4 +175,17 @@ let totalScore = 0;
 
 function currentQuestion(questionNumber) {
     console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+    let hintSuggestion = true;
+    while (hintSuggestion === true) {
+        questionHint = prompt.question("Would you like a hint?");
+        if (questionHint.toLowerCase() === "yes") {
+            console.log(questions[questionNumber].questionHint);
+            roundScore--;
+            hintSuggestion = false;
+        } else if (questionHint.toLowerCase() !== "yes" && questionHint.toLowerCase() !== "no") {
+            console.log("Please enter YES to see the hint, or NO if you want to try answering without a hint.");
+        } else {
+            hintSuggestion = false;
+        }
+    }
 }
