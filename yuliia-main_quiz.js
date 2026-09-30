@@ -172,3 +172,7 @@ let wrongAnswers = Array();
 let roundScore = 0;
 let roundScores = Array();
 let totalScore = 0;
+
+function currentQuestion(questionNumber) {
+    console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+}
