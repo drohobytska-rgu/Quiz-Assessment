@@ -251,3 +251,10 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
         roundScore = 0;
     }
 }
+
+let rounds = [
+     questionCategories,
+     correctAnswers,
+     wrongAnswers,
+     roundScores
+];
