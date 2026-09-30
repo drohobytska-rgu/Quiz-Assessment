@@ -238,6 +238,16 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
         console.log(`Question category is ${questionCategory}.`)
         questionCategories.push(questionCategory);
         console.log(`Question categories are ${questionCategories}.`);
+        totalScore += roundScore;
+        console.log(`Total score is ${totalScore}.`);
+        correctAnswers.push(correctAnswer);
+        console.log(`Correct answers: ${correctAnswer}`);
+        console.log(`Array of correct answers: ${correctAnswers}`);
+        wrongAnswers.push(wrongAnswer);
+        console.log(`Wrong answers: ${wrongAnswer}`);
+        console.log(`Array of wrong answers: ${wrongAnswers}`);
+        correctAnswer = 0;
+        wrongAnswer = 0;
         roundScore = 0;
     }
 }
