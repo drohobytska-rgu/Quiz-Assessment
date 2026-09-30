@@ -188,12 +188,17 @@ function currentQuestion(questionNumber) {
             hintSuggestion = false;
         }
     }
-    playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
-    if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
-        console.log("Correct! Well done.");
-    } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
-        console.log("Invalid input. Please enter A, B, C, or D.");
-    } else { 
-        console.log("Incorrect answer.");
+    let tryAgain = true;
+    while (tryAgain === true) {
+        playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
+        if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
+            console.log("Correct! Well done.");
+            tryAgain = false;
+        } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
+            console.log("Invalid input. Please enter A, B, C, or D.");
+        } else { 
+            console.log("Incorrect answer.");
+            tryAgain = false;
+        }
     }
 }
