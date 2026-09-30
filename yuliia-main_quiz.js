@@ -258,3 +258,11 @@ let rounds = [
      wrongAnswers,
      roundScores
 ];
+
+for (let i = 0; i < rounds.length; i++) {
+    let row = "";
+    for (let j = 0; j < rounds[i].length; j++) {
+        row += String(rounds[i][j]).padEnd(17);
+    }
+    console.log(row);
+}
