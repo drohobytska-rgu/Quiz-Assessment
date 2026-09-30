@@ -193,11 +193,15 @@ function currentQuestion(questionNumber) {
         playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
         if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
             console.log("Correct! Well done.");
+            correctAnswer++;
+            roundScore += 3;
+            console.log(`Round score is ${roundScore}.`);
             tryAgain = false;
         } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
             console.log("Invalid input. Please enter A, B, C, or D.");
         } else { 
             console.log("Incorrect answer.");
+            wrongAnswer++;
             tryAgain = false;
         }
     }
