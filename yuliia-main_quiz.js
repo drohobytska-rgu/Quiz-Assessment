@@ -1,5 +1,8 @@
 const prompt = require("readline-sync");
 
+// ==================== QUESTION BANK ====================
+
+// Stores all quiz questions, answer options, hints and correct answers.
 let questions = Array();
 
 questions[1] = {
@@ -162,6 +165,9 @@ questions[20] = {
     correctAnswer: "C",
 };
 
+// ==================== QUIZ DATA ====================
+
+// Stores the player's answers, scores and statistics during the quiz.
 let questionHint = "";
 let playerAnswer = "";
 let answerTime = 0;
@@ -173,8 +179,12 @@ let roundScore = 0;
 let roundScores = Array();
 let totalScore = 0;
 
+// ==================== QUESTION FUNCTION ====================
+
+// Displays the current question and handles the hint and answer input.
 function currentQuestion(questionNumber) {
     console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+    // Keep asking until the player enters a valid YES or NO response.
     let hintSuggestion = true;
     while (hintSuggestion === true) {
         questionHint = prompt.question("Would you like a hint?");
@@ -188,9 +198,11 @@ function currentQuestion(questionNumber) {
             hintSuggestion = false;
         }
     }
+    // Validate the player's answer and allow another input if the entry is invalid.
     let tryAgain = true;
     while (tryAgain === true) {
         playerAnswer = prompt.question("Please enter your answer as A, B, C, or D.");
+        // Check whether the player's answer matches the correct answer.
         if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
             console.log("Correct! Well done.");
             correctAnswer++;
@@ -205,6 +217,7 @@ function currentQuestion(questionNumber) {
             tryAgain = false;
         }
     }
+    // Deduct one point if the player takes more than 20 seconds to answer.
     if (answerTime > 20) {
         roundScore--;
     } 
@@ -213,8 +226,12 @@ function currentQuestion(questionNumber) {
 let questionCategory = "";
 let questionCategories = Array();
 
-for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
+// ==================== QUIZ LOOP ====================
+
+// Run each question in sequence and collect results for every round.
+for (let questionNumber = 1; questionNumber <= 20; questionNumber++) { 
     currentQuestion(questionNumber);
+    // Assign the current set of four questions to its quiz category.
     switch (true) {
         case questionNumber < 5:
             questionCategory = "General Knowledge";
@@ -232,6 +249,7 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
             questionCategory = "Geography";
             break;
     }
+    // After every four questions, save the round statistics and reset the counters.
     if (questionNumber % 4 == 0) {
         roundScores.push(roundScore);
         console.log(`Round scores are ${roundScores}.`);
@@ -252,14 +270,18 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
     }
 }
 
+// ==================== FINAL RESULTS ====================
+
 console.log("FINAL RESULTS:");
 console.log("");
 
+// Add row labels so each type of result is clearly identified in the final table.
 questionCategories.unshift("Question Categories");
 correctAnswers.unshift("Correct Answers");
 wrongAnswers.unshift("Wrong Answers");
 roundScores.unshift("Round Scores");
 
+// Store the result arrays inside a 2D array for formatted table output.
 let rounds = [
      questionCategories,
      correctAnswers,
@@ -267,9 +289,11 @@ let rounds = [
      roundScores
 ];
 
+// Use nested loops to read each row and column of the 2D results array.
 for (let i = 0; i < rounds.length; i++) {
     let row = "";
     for (let j = 0; j < rounds[i].length; j++) {
+        // Convert each value to a string and add spacing to keep the columns aligned.
         row += String(rounds[i][j]).padEnd(25);
     }
     console.log(row);
