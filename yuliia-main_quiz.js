@@ -209,3 +209,12 @@ function currentQuestion(questionNumber) {
         roundScore--;
     } 
 }
+
+for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
+    currentQuestion(questionNumber);
+    if (questionNumber % 4 == 0) {
+        roundScores.push(roundScore);
+        console.log(`Round scores are ${roundScores}.`);
+        roundScore = 0;
+    }
+}
