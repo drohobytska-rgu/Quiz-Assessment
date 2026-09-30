@@ -210,11 +210,34 @@ function currentQuestion(questionNumber) {
     } 
 }
 
+let questionCategory = "";
+let questionCategories = Array();
+
 for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
     currentQuestion(questionNumber);
+    switch (true) {
+        case questionNumber < 5:
+            questionCategory = "General Knowledge";
+            break;
+        case questionNumber >= 5 && questionNumber < 9:
+            questionCategory = "Technology";
+            break;
+        case questionNumber >= 9 && questionNumber < 13:
+            questionCategory = "Cybersecurity";
+            break;
+        case questionNumber >= 13 && questionNumber < 17:
+            questionCategory = "Science";
+            break;
+        case questionNumber >= 17 && questionNumber <= 20:
+            questionCategory = "Geography";
+            break;
+    }
     if (questionNumber % 4 == 0) {
         roundScores.push(roundScore);
         console.log(`Round scores are ${roundScores}.`);
+        console.log(`Question category is ${questionCategory}.`)
+        questionCategories.push(questionCategory);
+        console.log(`Question categories are ${questionCategories}.`);
         roundScore = 0;
     }
 }
