@@ -1,5 +1,5 @@
 const prompt = require("readline-sync");
-
+let resultArr = [];
 
 class Question {
     static allQuestions = [];
@@ -84,3 +84,13 @@ function AnswerCheck(currentQuestion, hint, roundScore) {
     }
     return roundScore;
 }
+
+
+
+function ResultBoard(finalScore) {
+    resultArr.push(finalScore);
+    console.log("----------------RESULT----------------" + "\n" + "1. " + resultArr.toString());
+
+}
+
+ResultBoard(QuestionsLoop());
