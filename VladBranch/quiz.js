@@ -56,3 +56,31 @@ function QuestionsLoop() {
     }
     return roundScore;
 }   
+
+
+
+function AnswerCheck(currentQuestion, hint, roundScore) {
+    let answer = prompt.question(currentQuestion.question + "\n" + currentQuestion.answers.join("\n") + "\n" + "Your answer is: ").toUpperCase();
+    let d = 1;
+    while( answer !== currentQuestion.correctAnswers && d <= 2 ) { 
+        if(isNaN(answer) && answer == "HINT") { 
+                let result = HintCheck(hint, roundScore, currentQuestion);
+                hint = result[0];
+                roundScore = result[1];
+                d++; 
+                answer = prompt.question(currentQuestion.question + "\n" + currentQuestion.answers.join("\n") + "\n" + "Your answer is: ").toUpperCase();
+        }else if(isNaN(answer) && answer != "HINT") {
+                console.log("============" + "\n" + "Wrong!" + "\n" + "============");
+                d++;
+                break;
+        }else if(!isNaN(answer)) {
+                console.log("============" + "\n" + "Must be a LETTER!" + "\n" + "============" );
+                answer = prompt.question(currentQuestion.question + "\n" + currentQuestion.answers.join("\n") + "\n" + "Your answer is: ").toUpperCase();
+        }   
+    }
+    if(answer == currentQuestion.correctAnswers) {
+        console.log("Correct!");
+        roundScore += 3;  
+    }
+    return roundScore;
+}
