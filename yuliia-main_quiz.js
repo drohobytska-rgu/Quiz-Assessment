@@ -180,6 +180,7 @@ let totalScore = 0;
 let startTime;
 let endTime;
 
+
 // ==================== QUESTION FUNCTION ====================
 
 // Displays the current question and handles the hint and answer input.
