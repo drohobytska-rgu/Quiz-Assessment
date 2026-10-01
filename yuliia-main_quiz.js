@@ -215,7 +215,7 @@ function currentQuestion(questionNumber) {
     startTime = Date.now();
     
     // Hint check function is called to ask the player if they want a hint for the current question.
-    hintCheck(roundScore, questionNumber, questionHint);
+    let roundScore = hintCheck(roundScore, questionNumber, questionHint);
 
     // Validate the player's answer and allow another input if the entry is invalid.
     let tryAgain = true;
