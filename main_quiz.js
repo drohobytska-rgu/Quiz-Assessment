@@ -17,46 +17,11 @@ else if (/[0-9]/.test(playerName))
 } 
 else if (!/^[a-zA-Z\s]+$/.test(playerName)) 
 {
-   console.log("Please don't use symbols. Enter your name:");
+   console.log("Please don't use symbols.");
 }
 else{
-     console.log("Hello " + playerName + "!" + " Let's start the quiz");;
-    break;
-}}
-  
-
-// console.log("Hello" + playerName + "!" + " Let's start the quiz");
-
-
-console.log ("================================");
-console.log("            MAIN MENU");
-console.log("===============================");
-
-while (true){
-console.log("1. Start Quiz");
-console.log("2. View Rules");
-console.log("3. View High Scores");
-console.log("4. Exit");
-
-
-
-
-
-let menuChoice =prompt.question("Please select an option 1 - 4:");
-let categoryName;
-
-if (menuChoice === "1") {
-   
-    console.log("1. General Knowledge");
-    console.log("2. Technology");
-    console.log("3. Cybersecurity");
-    console.log("4. Science");
-     categoryName = (prompt.question("Please select a category:"));
-
-// generalKnowledgeQuiz questions and all the next questions or category choise and its questions will be desplaied later
-}
-else if (menuChoice ==="2") {
-    console.log("Quiz Rules");
+     console.log("Hello " + playerName + "!" + " Here are the rules you need to know before taking the quiz");
+     console.log("==========Quiz Rules==========");
     console.log("1. There are 4 questions in each category.");
     console.log("2. Each question has 4 answer options.");
     console.log("3. You have 20 seconds to answer each question..");
@@ -64,56 +29,115 @@ else if (menuChoice ==="2") {
     console.log("5. 3 points - correct answer with no hint and within 20 seconds");
     console.log("6. 2 points - correct answer with a hint OR after 20 seconds");
     console.log("7. 1 point - correct answer with a hint AND after 20 seconds");
-    console.log("8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.");
-
-// here will be desplied the rules of the quiz
-}
-else if (menuChoice ==="3") {
-    console.log("View High Scores")
-}
-// here a user can see the high scores of the quiz
-else if(menuChoice === "4"){
-    console.log("Exiting the quiz. Goodbye!")
-}
-    else {
-    console,log("Invalid option. Please select 1 -4.");
-    continue;
-}
-
-
-
-
-
-if (categoryName === "1") {
-    generalKnowledgeQuestions();
+    console.log("8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.")
+     ;
     break;
-    // here will be desplayed the questions of the General Knowledge category
-}
-else if (categoryName === "2") {
-    console.log("You have selected Technology category");
-    break;
-    // here will be desplayed the questions of the Technology category
-}
-else if (categoryName === "3") {
-    console.log("You have selected Cybersecurity category");
-    break;
-    // here will be desplayed the questions of the Cybersecurity category
-}
-else if (categoryName === "4") {
-    console.log("You have selected Science category");
-    break;
-   // here will be desplayed the questions of the Science category
-}
-}
+}}
+  
+console.log(prompt.question ("Are you ready to start the quiz? If yes, press any button to start the quiz:"))
+// console.log("Hello" + playerName + "!" + " Let's start the quiz");
 
 
-// // GENERAL QUESTION QUIZ
+// console.log ("================================");
+// console.log("            MAIN MENU");
+// console.log("===============================");
+
+// while (true){
+// console.log("1. Start Quiz");
+// console.log("2. View Rules");
+// console.log("3. View High Scores");
+// console.log("4. Exit");
+
+
+
+
+
+// let menuChoice =prompt.question("Please select an option 1 - 4:");
+// let categoryName;
+
+// if (menuChoice === "1") {
+
+   
+    // console.log("1. General Knowledge");
+    // console.log("2. Technology");
+    // console.log("3. Cybersecurity");
+    // console.log("4. Science");
+    //  categoryName = (prompt.question("Please select a category:"));
+    //  break;
+
+// generalKnowledgeQuiz questions and all the next questions or category choise and its questions will be desplaied later
+// }
+// else if (menuChoice ==="2") {
+//     // console.log("Quiz Rules");
+//     // console.log("1. There are 4 questions in each category.");
+//     // console.log("2. Each question has 4 answer options.");
+//     // console.log("3. You have 20 seconds to answer each question..");
+//     // console.log("4. Each question has one available hint.");
+//     // console.log("5. 3 points - correct answer with no hint and within 20 seconds");
+//     // console.log("6. 2 points - correct answer with a hint OR after 20 seconds");
+//     // console.log("7. 1 point - correct answer with a hint AND after 20 seconds");
+//     // console.log("8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.");
+// let returnToMenu = prompt.question("Would you like to return to the main menu? (Yes/No):");
+// if (returnToMenu.toUpperCase() === "Y") {
+//     continue;
+// } else if (returnToMenu.toUpperCase() === "N") {
+//     console.log("You are leaving the Quiz.!");
+// }
+// // here will be desplied the rules of the quiz
+// }
+// else if (menuChoice ==="3") {
+//     console.log("View High Scores")
+// let returnToMenu = prompt.question("Would you like to return to the main menu? (Yes/No):");
+// if (returnToMenu.toUpperCase() === "Y") {
+//     continue;
+// } else if (returnToMenu.toUpperCase() === "N") {
+//     console.log("You are leaving the Quiz.!");
+// }
+// }
+// // here a user can see the high scores of the quiz
+// else if(menuChoice === "4"){
+//     console.log("Exiting the quiz. Goodbye!");
+//     break;
+// }
+//     else {
+//     console.log("Invalid option. Please select 1 -4.");
+//     continue;
+// }
+
+
+
+
+
+// if (categoryName === "1") {
+//     generalKnowledgeQuestions();
+//     break;
+//     // here will be desplayed the questions of the General Knowledge category
+// }
+// else if (categoryName === "2") {
+//     console.log("You have selected Technology category");
+//     break;
+//     // here will be desplayed the questions of the Technology category
+// }
+// else if (categoryName === "3") {
+//     console.log("You have selected Cybersecurity category");
+//     break;
+//     // here will be desplayed the questions of the Cybersecurity category
+// }
+// else if (categoryName === "4") {
+//     console.log("You have selected Science category");
+//     break;
+//    // here will be desplayed the questions of the Science category
+// }
+// }
+
+
+// // // GENERAL QUESTION QUIZ
 
 
 // QUESTION 1
 
-function generalKnowledgeQuestions() {
-  console.log("You have selected General Knowledge category");
+// function generalKnowledgeQuestions() {
+//   console.log("You have selected General Knowledge category");
 
   const generalKQ = [
     {
@@ -153,10 +177,13 @@ function generalKnowledgeQuestions() {
 
     const playerAnswer = prompt.question("Please select one of the options A, B, C or D:");
 
+    if (!["A", "B", "C", "D"].includes(playerAnswer)){
+        console.log("Invalid answer. Please select A, B, C or D.");
+    }
     if (playerAnswer.toUpperCase() === question.correctAnswer) {
       console.log("Correct answer! You have earned 3 points.");
     } else {
       console.log("Incorrect answer");
     }
   }
-}
+// }
