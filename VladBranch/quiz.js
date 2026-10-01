@@ -43,3 +43,16 @@ function HintCheck(hint, roundScore, currentQuestion) {
     return [hint, roundScore];
         
 }   
+
+function QuestionsLoop() {
+    let i = 0;
+    let roundScore = 0;
+    while( i < Question.allQuestions.length) {
+        let hint = 1;
+        let currentQuestion = Question.allQuestions[i];
+        console.log(currentQuestion.name);
+        roundScore = AnswerCheck(currentQuestion, hint, roundScore);
+        i++;
+    }
+    return roundScore;
+}   
