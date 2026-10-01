@@ -175,9 +175,9 @@ let correctAnswer = 0;
 let correctAnswers = Array();
 let wrongAnswer = 0;
 let wrongAnswers = Array();
-let roundScore = 0;
-let roundScores = Array();
-let totalScore = 0;
+// let roundScore = 0;
+// let roundScores = Array();
+// let totalScore = 0;
 
 // ==================== QUESTION FUNCTION ====================
 
