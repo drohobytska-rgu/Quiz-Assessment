@@ -1,4 +1,40 @@
 const prompt = require("readline-sync");
+console.log("Welcome to the Quiz");
+
+for(;;){
+
+let playerName = prompt.question("Please enter your name:");
+
+if (playerName.trim() === "")
+    {
+    console.log("Please enter your name:");
+}
+else if (/[0-9]/.test(playerName))
+{
+    console.log("It is a Number! Please enter your name without numbers");
+
+} 
+else if (!/^[a-zA-Z\s]+$/.test(playerName)) 
+{
+   console.log("Please don't use symbols.");
+}
+else{ console.log("Hello " , playerName , "!\n \n",
+        " Here are the rules you need to know before taking the quiz.\n\n",
+
+    "==========Quiz Rules==========\n\n",
+    "1. There are 4 questions in each category.\n\n",
+    "2. Each question has 4 answer options.\n\n",
+    "3. You have 20 seconds to answer each question.\n\n",
+    "4. Each question has one available hint.\n\n",
+    "5. 3 points - correct answer with no hint and within 20 seconds\n\n",
+    "6. 2 points - correct answer with a hint OR after 20 seconds\n\n",
+    "7. 1 point - correct answer with a hint AND after 20 seconds\n\n",
+    "8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.\n")
+     ;
+    break;
+}}
+
+console.log(prompt.question ("Are you ready to start the quiz? If yes, press ENTER to start the quiz:"))
 
 // ==================== QUESTION BANK ====================
 
@@ -174,22 +210,60 @@ let correctAnswer = 0;
 let correctAnswers = Array();
 let wrongAnswer = 0;
 let wrongAnswers = Array();
-let roundScore = 0;
-let roundScores = Array();
-let totalScore = 0;
 let startTime;
 let endTime;
+let userAnswers = [];
+let isCorrect = false;
+let hintsTaken = false;
+let roundScore;
+let roundScores = Array();
+
+// ==================== YOUR SCORING & RESULTS FUNCTIONS ====================
+
+function calculatingQuizPoints(userAnswers) {
+    let totalScore = 0;
+    for (const answer of userAnswers) {
+        if (!answer.isCorrect) {
+            totalScore += 0;
+        } else if (!answer.hintsTaken && answer.timeTaken <= 20) {
+            totalScore += 3; 
+        } else if (answer.hintsTaken && answer.timeTaken > 20) {
+            totalScore += 1;
+        } else if (answer.hintsTaken || answer.timeTaken > 20) {
+            totalScore += 2;
+        } 
+    }
+    return totalScore;
+}
+
+function calculatingResults(userAnswers) {
+    let correctAnswersCount = 0;
+    const totalQuestions = userAnswers.length; 
+    for (const answer of userAnswers) {
+        if (answer.isCorrect) {
+            correctAnswersCount++;
+        }
+    }
+    let incorrectAnswersCount = totalQuestions - correctAnswersCount;
+
+    return {
+        totalQuestions: totalQuestions,
+        correctAnswers: correctAnswersCount,
+        incorrectAnswers: incorrectAnswersCount,
+    };
+}
 
 // ==================== QUESTION FUNCTION ====================
 
-function hintCheck(roundScore, questionNumber, questionHint) {  
+function hintCheck(questionNumber, questionHint) {  
     let hintSuggestion = true;
+    let isHintUsed = false;
     while (hintSuggestion === true) {
         questionHint = prompt.question("Would you like a hint?");
         if (questionHint.toLowerCase() === "yes") {
             console.log("----------" + "\n" + questions[questionNumber].questionHint + "\n" + "----------");
         hintSuggestion = false;
-        roundScore -=1;
+        isHintUsed = true;
         } else if (questionHint.toLowerCase() !== "yes" && questionHint.toLowerCase() !== "no") {
             console.log("Please enter YES to see the hint, or NO if you want to try answering without a hint.");
         } else {
@@ -197,7 +271,7 @@ function hintCheck(roundScore, questionNumber, questionHint) {
         }
     }
           
-    return roundScore;
+    return isHintUsed;
         
 }   
 
@@ -207,7 +281,7 @@ function currentQuestion(questionNumber) {
     startTime = Date.now();
     
     // Hint check function is called to ask the player if they want a hint for the current question.
-    roundScore = hintCheck(roundScore, questionNumber, questionHint);
+    hintsTaken = hintCheck(roundScore, questionNumber, questionHint);
 
     // Validate the player's answer and allow another input if the entry is invalid.
     let tryAgain = true;
@@ -218,8 +292,8 @@ function currentQuestion(questionNumber) {
             console.log("Correct! Well done.");
             endTime = Date.now();
             correctAnswer++;
-            roundScore += 3;
             tryAgain = false;
+            isCorrect = true;
         } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
             console.log("Invalid input. Please enter A, B, C, or D.");
         } else { 
@@ -227,15 +301,18 @@ function currentQuestion(questionNumber) {
             endTime = Date.now();
             wrongAnswer++;
             tryAgain = false;
+            isCorrect = false;
         }
     }
 
     let timeTaken = ((endTime - startTime) / 1000); // Calculate how long the player took to answer and convert the time from milliseconds to seconds.
 
+    userAnswers.push({
+        isCorrect: isCorrect,
+        hintsTaken: hintsTaken,
+        timeTaken: timeTaken
+    });
     // Deduct one point if the player takes more than 20 seconds to answer.
-    if (timeTaken > 20) {
-        roundScore--;
-    } 
 }
 
 let questionCategory = "";
@@ -268,7 +345,6 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
     if (questionNumber % 4 === 0) {
         roundScores.push(roundScore);
         questionCategories.push(questionCategory);
-        totalScore += roundScore;
         correctAnswers.push(correctAnswer);
         wrongAnswers.push(wrongAnswer);
         correctAnswer = 0;
@@ -281,6 +357,8 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
 
 console.log("FINAL RESULTS:");
 console.log("");
+
+const totalPoints = calculatingQuizPoints(userAnswers);
 
 // Add row labels so each type of result is clearly identified in the final table.
 questionCategories.unshift("Question Categories");
@@ -307,4 +385,4 @@ for (let i = 0; i < rounds.length; i++) {
 }
 
 console.log("");
-console.log("Total Score: " + totalScore);
+console.log("Total Points: " + totalPoints);
