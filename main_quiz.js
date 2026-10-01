@@ -20,21 +20,25 @@ else if (!/^[a-zA-Z\s]+$/.test(playerName))
    console.log("Please don't use symbols.");
 }
 else{
-     console.log("Hello " + playerName + "!" + " Here are the rules you need to know before taking the quiz");
-     console.log("==========Quiz Rules==========");
-    console.log("1. There are 4 questions in each category.");
-    console.log("2. Each question has 4 answer options.");
-    console.log("3. You have 20 seconds to answer each question..");
-    console.log("4. Each question has one available hint.");
-    console.log("5. 3 points - correct answer with no hint and within 20 seconds");
-    console.log("6. 2 points - correct answer with a hint OR after 20 seconds");
-    console.log("7. 1 point - correct answer with a hint AND after 20 seconds");
-    console.log("8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.")
+     console.log("Hello " , playerName , "!\n \n",
+        " Here are the rules you need to know before taking the quiz.\n\n",
+
+
+
+    "==========Quiz Rules==========\n\n",
+    "1. There are 4 questions in each category.\n\n",
+    "2. Each question has 4 answer options.\n\n",
+    "3. You have 20 seconds to answer each question.\n\n",
+    "4. Each question has one available hint.\n\n",
+    "5. 3 points - correct answer with no hint and within 20 seconds\n\n",
+    "6. 2 points - correct answer with a hint OR after 20 seconds\n\n",
+    "7. 1 point - correct answer with a hint AND after 20 seconds\n\n",
+    "8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.\n")
      ;
     break;
 }}
   
-console.log(prompt.question ("Are you ready to start the quiz? If yes, press any button to start the quiz:"))
+console.log(prompt.question ("Are you ready to start the quiz? If yes, press ENTER to start the quiz:"))
 // console.log("Hello" + playerName + "!" + " Let's start the quiz");
 
 
