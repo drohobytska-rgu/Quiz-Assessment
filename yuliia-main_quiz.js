@@ -180,7 +180,6 @@ let totalScore = 0;
 let startTime;
 let endTime;
 
-
 // ==================== QUESTION FUNCTION ====================
 
 function hintCheck(roundScore, questionNumber, questionHint) {  
@@ -198,16 +197,9 @@ function hintCheck(roundScore, questionNumber, questionHint) {
         }
     }
           
-    return [roundScore];
+    return roundScore;
         
 }   
-
-
-
-
-
-
-
 
 // Displays the current question and handles the hint and answer input.
 function currentQuestion(questionNumber) {
@@ -215,7 +207,7 @@ function currentQuestion(questionNumber) {
     startTime = Date.now();
     
     // Hint check function is called to ask the player if they want a hint for the current question.
-    let roundScore = hintCheck(roundScore, questionNumber, questionHint);
+    roundScore = hintCheck(roundScore, questionNumber, questionHint);
 
     // Validate the player's answer and allow another input if the entry is invalid.
     let tryAgain = true;
@@ -273,7 +265,7 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
             break;
     }
     // After every four questions, save the round statistics and reset the counters.
-    if (questionNumber % 4 == 0) {
+    if (questionNumber % 4 === 0) {
         roundScores.push(roundScore);
         questionCategories.push(questionCategory);
         totalScore += roundScore;
@@ -316,4 +308,3 @@ for (let i = 0; i < rounds.length; i++) {
 
 console.log("");
 console.log("Total Score: " + totalScore);
-
