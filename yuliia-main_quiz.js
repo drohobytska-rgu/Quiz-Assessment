@@ -183,24 +183,40 @@ let endTime;
 
 // ==================== QUESTION FUNCTION ====================
 
-// Displays the current question and handles the hint and answer input.
-function currentQuestion(questionNumber) {
-    console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
-    startTime = Date.now();
-    // Keep asking until the player enters a valid YES or NO response.
+function hintCheck(roundScore, questionNumber, questionHint) {  
     let hintSuggestion = true;
     while (hintSuggestion === true) {
         questionHint = prompt.question("Would you like a hint?");
         if (questionHint.toLowerCase() === "yes") {
-            console.log(questions[questionNumber].questionHint);
-            roundScore--;
-            hintSuggestion = false;
+            console.log("----------" + "\n" + questions[questionNumber].questionHint + "\n" + "----------");
+        hintSuggestion = false;
+        roundScore -=1;
         } else if (questionHint.toLowerCase() !== "yes" && questionHint.toLowerCase() !== "no") {
             console.log("Please enter YES to see the hint, or NO if you want to try answering without a hint.");
         } else {
             hintSuggestion = false;
         }
     }
+          
+    return [roundScore];
+        
+}   
+
+
+
+
+
+
+
+
+// Displays the current question and handles the hint and answer input.
+function currentQuestion(questionNumber) {
+    console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+    startTime = Date.now();
+    
+    // Hint check function is called to ask the player if they want a hint for the current question.
+    hintCheck(roundScore, questionNumber, questionHint);
+
     // Validate the player's answer and allow another input if the entry is invalid.
     let tryAgain = true;
     while (tryAgain === true) {
@@ -222,7 +238,7 @@ function currentQuestion(questionNumber) {
         }
     }
 
-    let timeTaken = ((endTime - startTime) / 1000).toFixed(0); // Calculate how long the player took to answer and convert the time from milliseconds to seconds.
+    let timeTaken = ((endTime - startTime) / 1000); // Calculate how long the player took to answer and convert the time from milliseconds to seconds.
 
     // Deduct one point if the player takes more than 20 seconds to answer.
     if (timeTaken > 20) {
@@ -301,4 +317,3 @@ for (let i = 0; i < rounds.length; i++) {
 console.log("");
 console.log("Total Score: " + totalScore);
 
-// test
