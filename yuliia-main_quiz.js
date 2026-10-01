@@ -1,4 +1,43 @@
 const prompt = require("readline-sync");
+console.log("Welcome to the Quiz");
+
+for(;;){
+
+
+let playerName = prompt.question("Please enter your name:");
+
+if (playerName.trim() === "")
+    {
+    console.log("Please enter your name:");
+}
+else if (/[0-9]/.test(playerName))
+{
+    console.log("It is a Number! Please enter your name without numbers");
+
+} 
+else if (!/^[a-zA-Z\s]+$/.test(playerName)) 
+{
+   console.log("Please don't use symbols.");
+}
+else{ console.log("Hello " , playerName , "!\n \n",
+        " Here are the rules you need to know before taking the quiz.\n\n",
+
+
+
+    "==========Quiz Rules==========\n\n",
+    "1. There are 4 questions in each category.\n\n",
+    "2. Each question has 4 answer options.\n\n",
+    "3. You have 20 seconds to answer each question.\n\n",
+    "4. Each question has one available hint.\n\n",
+    "5. 3 points - correct answer with no hint and within 20 seconds\n\n",
+    "6. 2 points - correct answer with a hint OR after 20 seconds\n\n",
+    "7. 1 point - correct answer with a hint AND after 20 seconds\n\n",
+    "8. 0 points - incorrect answer. The attempt ends immediately, with no second guess, and you move on to the next question.\n")
+     ;
+    break;
+}}
+
+console.log(prompt.question ("Are you ready to start the quiz? If yes, press ENTER to start the quiz:"))
 
 // ==================== QUESTION BANK ====================
 
