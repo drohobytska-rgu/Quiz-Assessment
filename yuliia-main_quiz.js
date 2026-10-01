@@ -170,7 +170,6 @@ questions[20] = {
 // Stores the player's answers, scores and statistics during the quiz.
 let questionHint = "";
 let playerAnswer = "";
-let answerTime = 0;
 let correctAnswer = 0;
 let correctAnswers = Array();
 let wrongAnswer = 0;
@@ -178,12 +177,16 @@ let wrongAnswers = Array();
 let roundScore = 0;
 let roundScores = Array();
 let totalScore = 0;
+let startTime;
+let endTime;
 
 // ==================== QUESTION FUNCTION ====================
 
 // Displays the current question and handles the hint and answer input.
 function currentQuestion(questionNumber) {
     console.log(questions[questionNumber].questionNumber + ". " + questions[questionNumber].questionText + "\n" + questions[questionNumber].answerOptions.join("\n"));
+    startTime = Date.now();
+    console.log("Start time is " + startTime);
     // Keep asking until the player enters a valid YES or NO response.
     let hintSuggestion = true;
     while (hintSuggestion === true) {
@@ -205,22 +208,30 @@ function currentQuestion(questionNumber) {
         // Check whether the player's answer matches the correct answer.
         if (playerAnswer.toUpperCase() === questions[questionNumber].correctAnswer) {
             console.log("Correct! Well done.");
+            endTime = Date.now();
+            console.log("End time is " + endTime);
             correctAnswer++;
             roundScore += 3;
-            console.log(`Round score is ${roundScore}.`);
             tryAgain = false;
         } else if (playerAnswer.toUpperCase() !== "A" && playerAnswer.toUpperCase() !== "B" && playerAnswer.toUpperCase() !== "C" && playerAnswer.toUpperCase() !== "D") {
             console.log("Invalid input. Please enter A, B, C, or D.");
         } else { 
             console.log("Incorrect answer.");
+            endTime = Date.now();
+            console.log("End time is " + endTime);
             wrongAnswer++;
             tryAgain = false;
         }
     }
+
+    let timeTaken = ((endTime - startTime) / 1000).toFixed(0); // Calculate how long the player took to answer and convert the time from milliseconds to seconds.
+    console.log("Time taken is " + timeTaken);
+
     // Deduct one point if the player takes more than 20 seconds to answer.
-    if (answerTime > 20) {
+    if (timeTaken > 20) {
         roundScore--;
     } 
+    console.log(`Round score is ${roundScore}.`);
 }
 
 let questionCategory = "";
