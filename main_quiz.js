@@ -1,5 +1,5 @@
 const prompt = require("readline-sync");
-console.log("Welcome to the quiz!");
+console.log("General Knowledge Quiz!");
 
 // Keep asking for the player's name until a valid name is entered.
 for (;;) {
@@ -217,6 +217,8 @@ let moreTimeTaken;
 let roundScore = 0;
 let roundScores = Array();
 let totalScore = 0;
+let roundTime = 0;
+let roundTimes = Array(); // adds time taken per round in final results
 
 // ==================== SCORING & RESULTS FUNCTIONS ====================
 
@@ -290,11 +292,17 @@ function currentQuestion(questionNumber) {
 
     // Calculate how long the player took to answer and convert the time from milliseconds to seconds.
     let timer = ((endTime - startTime) / 1000); 
+    roundTime += timer; // adds question time to the round's total
 
     if (timer <= 20) {
         moreTimeTaken = false;
     } else {
         moreTimeTaken = true;
+    }
+       // ADDED: show the player their time and why they might lose a point
+    console.log("You took " + Math.floor(timer) + " seconds to answer this question!");
+    if (moreTimeTaken && isCorrect) {
+        console.log("Although you took over 20 seconds, so you lose 1 point :(");
     }
 }
 
@@ -336,6 +344,8 @@ for (let questionNumber = 1; questionNumber <= 20; questionNumber++) {
         roundScore = 0;
         correctAnswer = 0;
         wrongAnswer = 0;    
+        roundTimes.push(Math.round(roundTime));   // allows reset for following category
+        roundTime = 0;  
     }
 }
 
@@ -348,13 +358,15 @@ questionCategories.unshift("Question Categories");
 correctAnswers.unshift("Correct Answers");
 wrongAnswers.unshift("Wrong Answers");
 roundScores.unshift("Round Scores");
+roundTimes.unshift("Time Taken (s)");
 
 // Store the result arrays inside a 2D array for formatted table output.
 let rounds = [
      questionCategories,
      correctAnswers,
      wrongAnswers,
-     roundScores
+     roundScores,
+     roundTimes
 ];
 
 // Use nested loops to read each row and column of the 2D results array.
